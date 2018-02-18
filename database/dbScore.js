@@ -6,7 +6,7 @@ var dbRaw = new sqlite3.Database('./database/raw.db');
 var selectScore = function (callback) {
     var score = []
     dbData.serialize(() => {
-        let sql = 'SELECT SUM(e1) as e1, SUM(e2) as e2, SUM(e3) as e3, SUM(e4) as e4, SUM(e5) as e5, SUM(e6) as e6 FROM data';
+        var sql = 'SELECT SUM(e1) as e1, SUM(e2) as e2, SUM(e3) as e3, SUM(e4) as e4, SUM(e5) as e5, SUM(e6) as e6 FROM data';
         dbData.all(sql, [], (err, rows) => {
             if (err) {
                 throw err;
