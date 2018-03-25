@@ -7,6 +7,10 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var home = require('./routes/home')
+var geld = require('./routes/geld')
+var auto = require('./routes/auto')
+var lager = require('./routes/lager')
+var therm = require('./routes/therm')
 var help = require('./routes/help')
 var helptrain = require('./routes/helptrain')
 
@@ -20,6 +24,9 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 
+
+// uncomment after placing your favicon in /public
+//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -28,6 +35,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/home', home);
+app.use('/geld', geld);
+app.use('/auto', auto);
+app.use('/lager', lager);
+app.use('/therm', therm);
 app.use('/help', help);
 app.use('/helptrain', helptrain);
 
@@ -48,8 +59,8 @@ app.use(function(err, req, res, next) {
 app.listen(8080);
 
 //Trainingsdaten laden
-db.selectNeuronal(function (data) {
-    neuronal.train(data)
-})
+//db.selectNeuronal(function (data) {
+  //  neuronal.train(data)
+//})
 
 module.exports = app;

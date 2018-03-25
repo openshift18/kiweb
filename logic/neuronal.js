@@ -11,4 +11,4 @@ module.exports =  {
     out: function (data) {
         return net.run(data)
     },
-}   
+}
