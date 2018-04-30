@@ -56,7 +56,11 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
 });
 
+//Openshift 8080
 app.listen(8080);
+
+//local
+//app.listen(80);
 
 //Trainingsdaten laden
 //db.selectNeuronal(function (data) {
